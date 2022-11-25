@@ -33,3 +33,5 @@ require("gwoo.nvim-autopairs")
 require("gwoo.markdown-preview")
 -- 括号补全
 require("gwoo.autopairs")
+-- 活动窗口边框
+require("gwoo.colorful-winsep")

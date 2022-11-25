@@ -7,6 +7,19 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
+
+  -- 窗口边框
+  window = {
+    completion = {
+      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+      winhighlight = 'FloatBorder:FloatBorder',
+    },
+    documentation = {
+      max_width = 50,
+      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+      winhighlight = 'Normal:CmpPmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
+    }
+  },
   -- 补全源
   sources = cmp.config.sources({
     { name = "nvim_lsp" },

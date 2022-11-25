@@ -104,6 +104,8 @@ packer.startup({
         use {"iamcco/markdown-preview.nvim"}
         -- 记录树
         use { "mbbill/undotree"}
+        -- 活动窗口边框 
+        use { "nvim-zh/colorful-winsep.nvim"}
 
 
     end
