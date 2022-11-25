@@ -55,7 +55,7 @@ packer.startup({
         --------------------- colorschemes --------------------
         -- tokyonight
         use("folke/tokyonight.nvim")
-        use("yonlu/omni.vim")
+        use("getomni/neovim")
         ------------------------- plugins -------------------------------------------
         -- nvim-tree
         use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
@@ -74,6 +74,7 @@ packer.startup({
         use("ahmedkhalf/project.nvim")
         -- treesitter （新增）
         use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+        use { 'nvim-treesitter/playground' }
         -- lsp  
         use({ "williamboman/mason.nvim" })
         use({ "williamboman/mason-lspconfig.nvim" })
