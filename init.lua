@@ -29,6 +29,7 @@ require("lsp.setup")
 require("lsp.cmp")
 require("lsp.ui")
 require("gwoo.nvim-autopairs")
+require("lsp.luasnip")
 -- markdown预览
 require("gwoo.markdown-preview")
 -- 括号补全

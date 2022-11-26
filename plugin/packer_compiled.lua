@@ -74,6 +74,16 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["Onedarker.nvim"] = {
+    loaded = true,
+    path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/Onedarker.nvim",
+    url = "https://github.com/lunarvim/Onedarker.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -104,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
   ["colorful-winsep.nvim"] = {
     loaded = true,
     path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/colorful-winsep.nvim",
@@ -123,6 +138,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -163,6 +183,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/neovim",
     url = "https://github.com/getomni/neovim"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,

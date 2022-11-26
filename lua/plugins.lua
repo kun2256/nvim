@@ -56,6 +56,9 @@ packer.startup({
         -- tokyonight
         use("folke/tokyonight.nvim")
         use("getomni/neovim")
+        use("EdenEast/nightfox.nvim")
+        use("rebelot/kanagawa.nvim")
+        use("lunarvim/Onedarker.nvim")
         ------------------------- plugins -------------------------------------------
         -- nvim-tree
         use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
@@ -90,6 +93,8 @@ packer.startup({
         use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
         use("hrsh7th/cmp-path") -- { name = 'path' }
         use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
+        use('saadparwaiz1/cmp_luasnip')
+        use { 'L3MON4D3/LuaSnip', requires = { 'rafamadriz/friendly-snippets' } }
 
         -- 常见编程语言代码片段
         use("rafamadriz/friendly-snippets")
