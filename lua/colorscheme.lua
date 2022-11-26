@@ -8,6 +8,6 @@ end
 vim.cmd[[
 hi FloatBorder guifg=#c296eb
 hi NormalFloat guibg=bg
-hi @include guifg=#00ffff
-hi @operator guifg=#3399FF
+hi @operator guifg=#c4a7e7
+hi @keyword.operator guifg=#c4a7e7
 ]]
