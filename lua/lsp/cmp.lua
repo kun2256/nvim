@@ -76,8 +76,8 @@ cmp.setup {
         fallback()
       end
     end, { "i", "c" }),
-    ["<C-p>"] = cmp.mapping.select_prev_item(),
-    ["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.close(),
@@ -93,24 +93,6 @@ cmp.setup {
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-    ["<C-j>"] = cmp.mapping(function(fallback)
-      if require('neogen').jumpable(-1) then
-        require('neogen').jump_next()
-      elseif require('luasnip').jumpable(1) then
-        require('luasnip').jump(1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-    ["<C-k>"] = cmp.mapping(function(fallback)
-      if require('neogen').jumpable(1) then
-        require('neogen').jump_prev()
-      elseif require('luasnip').jumpable(-1) then
-        require('luasnip').jump(-1)
       else
         fallback()
       end
