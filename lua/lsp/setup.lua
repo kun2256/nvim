@@ -9,18 +9,20 @@ require("mason").setup({
     },
 })
 
--- mason-lspconfig uses the `lspconfig` server names in the APIs it exposes - not `mason.nvim` package names
--- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
-require("mason-lspconfig").setup({
-    -- 确保安装，根据需要填写
-    ensure_installed = {
-        "bashls",
-        "cssls",
-        "dockerls",
-        "emmet_ls",
-        "html",
-        "jsonls",
-        "pyright",
-    },
-})
-
+--mason-lspconfig uses the `lspconfig` server names in the APIs it exposes - not `mason.nvim` package names
+--https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+-- require("mason-lspconfig").setup({
+--     -- 确保安装，根据需要填写
+--     ensure_installed = {
+--         "pyright",
+--         "clangd",
+--         "marksman",
+--         "dockerfile-language-server",
+--         "html-ls",
+--         "json-lsp",
+--         "lua-language-serve",
+--         "css-lsp",
+--         "bash-language-server",
+--     },
+-- })
+-- 

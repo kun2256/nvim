@@ -6,6 +6,8 @@ require("keybindings")
 require("plugins")
 -- 主题设置
 require("colorscheme")
+-- 浮窗设置
+require("gwoo.window")
 
 
 
@@ -30,9 +32,20 @@ require("lsp.cmp")
 require("lsp.ui")
 require("gwoo.nvim-autopairs")
 require("lsp.luasnip")
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.marksman.setup{}
+-- require'lspconfig'.dockerfile\-language\-server.setup{}
+-- require'lspconfig'.html\-lsp.setup{}
+-- require'lspconfig'.json\-lsp.setup{}
+-- require'lspconfig'.lua\-language\-serve.setup{}
+-- require'lspconfig'.css\-lsp.setup{}
+-- require'lspconfig'.bash\-language\-server.setup{}
 -- markdown预览
 require("gwoo.markdown-preview")
 -- 括号补全
 require("gwoo.autopairs")
 -- 活动窗口边框
-require("gwoo.colorful-winsep")
+--require("gwoo.colorful-winsep")
+require("lsp.init")
+require("lsp.mason-lspconfig") 

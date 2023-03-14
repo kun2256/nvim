@@ -1,4 +1,4 @@
-local colorscheme = "Duskfox"
+local colorscheme = "duskfox"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
   vim.notify("colorscheme " .. colorscheme .. " 没有找到！")
@@ -7,7 +7,6 @@ end
 
 vim.cmd[[
 hi FloatBorder guifg=#c296eb
-hi NormalFloat guibg=bg
 hi @operator guifg=#c4a7e7
 hi @keyword.operator guifg=#c4a7e7
 ]]

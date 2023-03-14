@@ -94,6 +94,12 @@ packer.startup({
         use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
         use('saadparwaiz1/cmp_luasnip')
         use { 'L3MON4D3/LuaSnip', requires = { 'rafamadriz/friendly-snippets' } }
+        use {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
+        }
+
 
         -- 常见编程语言代码片段
         use("rafamadriz/friendly-snippets")
@@ -111,7 +117,11 @@ packer.startup({
         use { "mbbill/undotree"}
         -- 活动窗口边框 
         use { "nvim-zh/colorful-winsep.nvim"}
+        use {'nvim-orgmode/orgmode', config = function()
+            require('orgmode').setup_ts_grammar()
+        end
+    }
 
 
-    end
+end
 })
