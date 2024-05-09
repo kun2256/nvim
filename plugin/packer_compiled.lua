@@ -129,20 +129,10 @@ _G.packer_plugins = {
     path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["indent-blankline.nvim"] = {
-    loaded = true,
-    path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
-  },
-  ["lspsaga.nvim"] = {
-    loaded = true,
-    path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
-    url = "https://github.com/tami5/lspsaga.nvim"
   },
   ["lualine-lsp-progress"] = {
     loaded = true,
@@ -168,16 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  neovim = {
-    loaded = true,
-    path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/neovim",
-    url = "https://github.com/getomni/neovim"
-  },
-  ["nightfox.nvim"] = {
-    loaded = true,
-    path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -210,7 +190,7 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   orgmode = {
-    config = { "\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\21setup_ts_grammar\forgmode\frequire\0" },
+    config = { "\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0" },
     loaded = true,
     path = "/Users/ouyangkun/.local/share/nvim/site/pack/packer/start/orgmode",
     url = "https://github.com/nvim-orgmode/orgmode"
@@ -270,7 +250,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: orgmode
 time([[Config for orgmode]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\21setup_ts_grammar\forgmode\frequire\0", "config", "orgmode")
+try_loadstring("\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0", "config", "orgmode")
 time([[Config for orgmode]], false)
 
 _G._packer.inside_compile = false

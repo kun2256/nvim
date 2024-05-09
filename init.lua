@@ -26,7 +26,7 @@ require("gwoo.project")
 -- 高亮
 require("gwoo.nvim-treesitter")
 -- 内置LSP (新增)
-require("gwoo.indent-blankline")
+-- require("gwoo.indent-blankline")
 require("lsp.setup")
 require("lsp.cmp")
 require("lsp.ui")
