@@ -120,7 +120,7 @@ packer.startup({
         use {'nvim-orgmode/orgmode', config = function()
             require('orgmode').setup_ts_grammar()
         end
-    }
+        }
 
 
 end
