@@ -55,9 +55,6 @@ packer.startup({
         --------------------- colorschemes --------------------
         -- tokyonight
         use("folke/tokyonight.nvim")
-        use("getomni/neovim")
-        use("EdenEast/nightfox.nvim")
-
         ------------------------- plugins -------------------------------------------
         -- nvim-tree
         use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
@@ -106,8 +103,8 @@ packer.startup({
         -- ui (新增)
         use("onsails/lspkind-nvim")
         -- indent-blankline
-        use("lukas-reineke/indent-blankline.nvim")
-        use("tami5/lspsaga.nvim")
+        -- use("lukas-reineke/indent-blankline.nvim")
+        -- use("tami5/lspsaga.nvim")
 
         --  括号补全
         use("windwp/nvim-autopairs")
@@ -118,9 +115,9 @@ packer.startup({
         -- 活动窗口边框 
         use { "nvim-zh/colorful-winsep.nvim"}
         use {'nvim-orgmode/orgmode', config = function()
-            require('orgmode').setup_ts_grammar()
+            -- require('orgmode').setup_ts_grammar()
         end
-        }
+    }
 
 
 end
