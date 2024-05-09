@@ -5,9 +5,9 @@
 |colorscheme.lua |我们安装的主题皮肤配置，在这里切换主题。|
 |keybindings.lua |快捷键的设置，所有插件的快捷键也都会放在这里。|
 |plugins.lua |插件安装管理，插件安装或卸载全在这里设置。|
-|lsp 文件夹 是对 Neovim 内置 LSP |功能的配置，包括常见编程语言与语法提示等。|
+|lsp |文件夹 是对 Neovim 内置 LSP 功能的配置，包括常见编程语言与语法提示等。|
 |config  |文件夹包含各种语言服务器单独的配置文件。|
-|setup.lua  内置 LSP |的配置。|
+|setup.lua |内置 LSP 的配置。|
 |cmp.lua  |语法自动补全补全的配置，包括各种补全源，与自定义代码段。|
 |ui.lua 对内置 LSP 功能增强和 UI |美化。|
 |formatter.lua |独立代码格式化功能。|
