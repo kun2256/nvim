@@ -50,7 +50,7 @@ local source_mapping = {
 
 
 
-cmp.setup {
+cmp.setup ({
     mapping = {
         --["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<CR>"] = cmp.mapping(function(fallback)
@@ -83,6 +83,7 @@ cmp.setup {
         end, { "i", "s" }),
     },
     preselect = cmp.PreselectMode.None,
+    -- 补全源
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
         -- For vsnip users.
@@ -137,23 +138,55 @@ cmp.setup {
                 vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
                 return vim_item
             end },
-            snippet = {
-                expand = function(args)
-                    snip.lsp_expand(args.body)
-                end
-            },
-            experimental = {
-                ghost_text = true,
-            },
-            window = {
-                completion = {
-                    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                    winhighlight = 'FloatBorder:FloatBorder',
-                },
-                documentation = {
-                    max_width = 50,
-                    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                    winhighlight = 'Normal:CmpPmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
-                }
-            },
+    experimental = {
+        ghost_text = true,
+    },
+    window = {
+        completion = {
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            winhighlight = 'FloatBorder:FloatBorder',
+        },
+        documentation = {
+            max_width = 50,
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            winhighlight = 'Normal:CmpPmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
         }
+    },
+    -- 指定 snippet 引擎
+    snippet = {
+        expand = function(args)
+            -- For `vsnip` users.
+            vim.fn["vsnip#anonymous"](args.body)
+
+            -- For `luasnip` users.
+            -- require('luasnip').lsp_expand(args.body)
+
+            -- For `ultisnips` users.
+            -- vim.fn["UltiSnips#Anon"](args.body)
+
+            -- For `snippy` users.
+            -- require'snippy'.expand_snippet(args.body)
+        end,
+    },
+    -- 快捷键设置
+    mapping = require("keybindings").cmp(cmp),
+})
+
+
+-- / 查找模式使用 buffer 源
+cmp.setup.cmdline("/", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = "buffer" },
+    },
+})
+
+-- : 命令行模式中使用 path 和 cmdline 源.
+cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = "path" },
+    }, {
+        { name = "cmdline" },
+    }),
+})

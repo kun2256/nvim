@@ -37,11 +37,11 @@ map("n", "s=", "<C-w>=", opt)
 -- Terminal相关
 map("n", "<leader>t", ":sp | terminal<CR>", opt)
 map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
-map("t", "<Esc>", "<C-\\><C-n>", opt)
-map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
-map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
-map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
-map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
+-- map("t", "<Esc>", "<C-\\><C-n>", opt)
+-- map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
+-- map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
+-- map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
+-- map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
 
 
 -- visual模式下缩进代码
@@ -73,23 +73,23 @@ local pluginKeys = {}
 map("n", "tr", ":NvimTreeToggle<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = {
-  -- 打开文件或文件夹
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
-  -- 分屏打开文件
-  { key = "v", action = "vsplit" },
-  { key = "h", action = "split" },
-  -- 显示隐藏文件
-  { key = "i", action = "toggle_custom" }, -- 对应 filters 中的 custom (node_modules)
-  { key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
-  -- 文件操作
-  { key = "<F5>", action = "refresh" },
-  { key = "a", action = "create" },
-  { key = "d", action = "remove" },
-  { key = "r", action = "rename" },
-  { key = "x", action = "cut" },
-  { key = "c", action = "copy" },
-  { key = "p", action = "paste" },
-  { key = "s", action = "system_open" },
+    -- 打开文件或文件夹
+    { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
+    -- 分屏打开文件
+    { key = "v", action = "vsplit" },
+    { key = "h", action = "split" },
+    -- 显示隐藏文件
+    { key = "i", action = "toggle_custom" }, -- 对应 filters 中的 custom (node_modules)
+    { key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
+    -- 文件操作
+    { key = "<F5>", action = "refresh" },
+    { key = "a", action = "create" },
+    { key = "d", action = "remove" },
+    { key = "r", action = "rename" },
+    { key = "x", action = "cut" },
+    { key = "c", action = "copy" },
+    { key = "p", action = "paste" },
+    { key = "s", action = "system_open" },
 }
 
 -- 切换 buff 栏
@@ -98,8 +98,8 @@ map("n", "B", ":BufferLinePick<cr>", opt)
 map("n", "cb", ":BufferLinePickClose<cr>", opt)
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 左右Tab切换
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
+map("n", "<A-h>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<A-l>", ":BufferLineCycleNext<CR>", opt)
 
 -- Telescope
 -- 查找文件
@@ -113,26 +113,35 @@ map("n", "L", ":UndotreeToggle<cr><C-w>h<C-w>k", opt)
 
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
-  i = {
-    -- 上下移动
-    ["<C-j>"] = "move_selection_next",
-    ["<C-k>"] = "move_selection_previous",
-    ["<Down>"] = "move_selection_next",
-    ["<Up>"] = "move_selection_previous",
-    -- 历史记录
-    ["<C-n>"] = "cycle_history_next",
-    ["<C-p>"] = "cycle_history_prev",
-    -- 关闭窗口
-    ["<C-c>"] = "close",
-    -- 预览窗口上下滚动
-    ["<C-u>"] = "preview_scrolling_up",
-    ["<C-d>"] = "preview_scrolling_down",
-  },
+    i = {
+        -- 上下移动
+        ["<C-j>"] = "move_selection_next",
+        ["<C-k>"] = "move_selection_previous",
+        ["<Down>"] = "move_selection_next",
+        ["<Up>"] = "move_selection_previous",
+        -- 历史记录
+        ["<C-n>"] = "cycle_history_next",
+        ["<C-p>"] = "cycle_history_prev",
+        -- 关闭窗口
+        ["<C-c>"] = "close",
+        -- 预览窗口上下滚动
+        ["<C-u>"] = "preview_scrolling_up",
+        ["<C-d>"] = "preview_scrolling_down",
+    },
 }
 
 
 -- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)
+
+    local feedkey = function(key, mode)
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+    end
+
+    local has_words_before = function()
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    end
     return {
         -- 出现补全
         ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
@@ -153,6 +162,41 @@ pluginKeys.cmp = function(cmp)
         -- 如果窗口内容太多，可以滚动
         ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
         ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
+        -- 自定义代码段跳转到下一个参数
+        ["<C-l>"] = cmp.mapping(function(_)
+            if vim.fn["vsnip#available"](1) == 1 then
+                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            end
+        end, {"i", "s"}),
+
+        -- 自定义代码段跳转到上一个参数
+        ["<C-h>"] = cmp.mapping(function()
+            if vim.fn["vsnip#jumpable"](-1) == 1 then
+                feedkey("<Plug>(vsnip-jump-prev)", "")
+            end
+        end, {"i", "s"}),
+
+        -- Super Tab
+--        ["<Tab>"] = cmp.mapping(function(fallback)
+--            if cmp.visible() then
+--                cmp.select_next_item()
+--            elseif vim.fn["vsnip#available"](1) == 1 then
+--                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+--            elseif has_words_before() then
+--                cmp.complete()
+--            else
+--                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+--            end
+--        end, {"i", "s"}),
+--
+--        ["<S-Tab>"] = cmp.mapping(function()
+--            if cmp.visible() then
+--                cmp.select_prev_item()
+--            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+--                feedkey("<Plug>(vsnip-jump-prev)", "")
+--            end
+--        end, {"i", "s"})
+--        -- end of super Tab
     }
 end
 
