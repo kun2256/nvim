@@ -109,7 +109,8 @@ packer.startup({
         --  括号补全
         use("windwp/nvim-autopairs")
         -- markdown预览
-        use {"iamcco/markdown-preview.nvim"}
+        use {'iamcco/markdown-preview.nvim'}
+
         -- 记录树
         use { "mbbill/undotree"}
         -- 活动窗口边框 
