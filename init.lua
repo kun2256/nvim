@@ -7,8 +7,13 @@ require("plugins")
 -- 主题设置
 require("colorscheme")
 -- 浮窗设置
-require("gwoo.window")
-
+--require("gwoo.window")
+-- neovide 窗口设置
+-- 字体设置
+vim.opt.guifont = "FiraCode Nerd Font:h16"
+-- Lua 示例：设置无边框窗口（需 Neovide 支持）
+vim.api.nvim_set_var('neovide_fullscreen', true)
+vim.api.nvim_set_var('neovide_hide_titlebar', true)
 
 
 -- 插件配置
