@@ -71,26 +71,6 @@ local pluginKeys = {}
 -- nvim-tree
 -- alt + m 键打开关闭tree
 map("n", "tr", ":NvimTreeToggle<CR>", opt)
--- 列表快捷键
-pluginKeys.nvimTreeList = {
-    -- 打开文件或文件夹
-    { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
-    -- 分屏打开文件
-    { key = "v", action = "vsplit" },
-    { key = "h", action = "split" },
-    -- 显示隐藏文件
-    { key = "i", action = "toggle_custom" }, -- 对应 filters 中的 custom (node_modules)
-    { key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
-    -- 文件操作
-    { key = "<F5>", action = "refresh" },
-    { key = "a", action = "create" },
-    { key = "d", action = "remove" },
-    { key = "r", action = "rename" },
-    { key = "x", action = "cut" },
-    { key = "c", action = "copy" },
-    { key = "p", action = "paste" },
-    { key = "s", action = "system_open" },
-}
 
 -- 切换 buff 栏
 map("n", "B", ":BufferLinePick<cr>", opt)
@@ -98,8 +78,8 @@ map("n", "B", ":BufferLinePick<cr>", opt)
 map("n", "cb", ":BufferLinePickClose<cr>", opt)
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 左右Tab切换
-map("n", "<A-h>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<A-l>", ":BufferLineCycleNext<CR>", opt)
+map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 
 -- Telescope
 -- 查找文件
